@@ -2,13 +2,13 @@
  export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/e770r/.oh-my-zsh"
+export ZSH="/home/jubril/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="gianu"
+ZSH_THEME="norm"
 
 # Set list of themes to pick from when loading at random 
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -68,7 +68,16 @@ COMPLETION_WAITING_DOTS="false"
 #Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(python git zsh-interactive-cd  colorize zsh-navigation-tools sudo colored-man-pages zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(
+python 
+git 
+zsh-interactive-cd 
+colorize 
+zsh-navigation-tools 
+sudo 
+colored-man-pages
+docker
+ )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -79,11 +88,12 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+   export EDITOR='nvim'
 # fi
 zstyle ':completion:*' matcher-list 'l:|=* r:|=*' 
 # Compilation flags
@@ -97,14 +107,13 @@ zstyle ':completion:*' matcher-list 'l:|=* r:|=*'
 # Example aliases
 alias zshconfig="nano ~/.zshrc"
 alias ohmyzsh="micro ~/.oh-my-zsh"
-alias micro="~/./micro"
+alias cat=bat
+#alias micro="~/./micro"
 alias srv="cd ~/Pictures/screenshots && python3 -m http.server --cgi"
 alias psd="http secure-woodland.herokuapp.com/generate/30 | grep -i password"
-alias xsstrike="python3 ~/sectools/XSStrike/xsstrike.py" 
-alias obsidian="./Downloads/Obsidian-0.8.1.AppImage" 
+alias xsstrike="python3 ~/sectools/XSStrike/xsstrike.py"  
 alias htmlstarter="touch index.html style.css script.js"
-alias obsidian=".~/Downloads/Obsidian-0.8.1.AppImage" 
 alias pipf="pip freeze > requirements.txt"  
-
+alias nvconf="nvim ~/.config/nvim/init.vim"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+export GOPATH=~/go
