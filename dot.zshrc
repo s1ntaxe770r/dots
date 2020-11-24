@@ -79,8 +79,10 @@ colored-man-pages
 docker
  )
 
-source $ZSH/oh-my-zsh.sh
+export ZSH="/Users/jubril/.oh-my-zsh"
 
+
+source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -115,5 +117,6 @@ alias xsstrike="python3 ~/sectools/XSStrike/xsstrike.py"
 alias htmlstarter="touch index.html style.css script.js"
 alias pipf="pip freeze > requirements.txt"  
 alias nvconf="nvim ~/.config/nvim/init.vim"
+alias kubectl="minikube kubectl --"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export GOPATH=~/go
