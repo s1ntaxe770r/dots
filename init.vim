@@ -49,6 +49,7 @@ au BufNewFile,BufRead *.py
 
 
 " COC-stuf	
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
