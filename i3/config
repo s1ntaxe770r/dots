@@ -29,6 +29,13 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+#brightness
+# Increase backlight
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
+# Decrease backlight
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -165,7 +172,7 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-default_border pixel 2
+default_border pixel 1
 default_floating_border none
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -174,15 +181,6 @@ bar {
 	position          bottom
 	status_command /usr/bin/i3status-rs ~/.config/i3/rs-config.toml
 	workspace_min_width 50
-    	colors {
-        separator #666666
-        background #222222
-        statusline #dddddd
-        focused_workspace #0088CC #0088CC #ffffff
-        active_workspace #333333 #333333 #ffffff
-        inactive_workspace #333333 #333333 #888888
-        urgent_workspace #2f343a #900000 #ffffff
-    }
 }
 
 bindsym $mod+i bar mode toggle
@@ -200,8 +198,8 @@ bindsym $mod+Tab exec rofi -show window -mode window -window-thumbnail -theme /h
 
 ##====GAPS==============####
 #for_window [class="^.*"] border pixel 1
-gaps inner 6
-gaps outer 3
+gaps inner 8
+gaps outer 2
 smart_gaps on
 
 ##===========AUTOSTART======##
@@ -212,10 +210,36 @@ exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
 
 ##======Borders======###
-for_window [class="[.]*"] border pixel 2
+for_window [class="[.]*"] border pixel 0
 hide_edge_borders smart
 
 ##===ClientFocus====##
-client.focused_inactive  #e8dcb6  #e8dcb6 #e8dcb6 #F6F0DE #989fb1
-client.focused  #89ddff  #89ddff  #89ddff  #89ddff  #89ddff 
+#client.focused_inactive  #e8dcb6  #e8dcb6 #e8dcb6 #F6F0DE #989fb1
+#client.focused  #89ddff  #89ddff  #89ddff  #89ddff  #89ddff 
 #client.unfocused 
+
+
+##===PYWAL-THEME===##
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use 
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
+
+# Apply .Xresource. As far as I know, only needed here if using starx (dont have a login manager)
+exec_always --no-startup-id xrdb ~/.Xresources
+
+# Apply the last colorscheme generated without changing the background by using -n 
+exec_always --no-startup-id wal -R -n
+
