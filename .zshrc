@@ -8,13 +8,14 @@ export ZSH="/home/jubril/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="norm"
+#ZSH_THEME="kiwi"
+
 
 # Set list of themes to pick from when loading at random 
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster"  "darkblood" "bira" "jnrowe" "gentoo" )
+#ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell"  "agnoster"  "darkblood" "bira" "jnrowe" "gentoo" "emotty" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -71,12 +72,15 @@ COMPLETION_WAITING_DOTS="false"
 plugins=(
 python 
 git 
+zsh-autosuggestions
 zsh-interactive-cd 
 colorize 
 zsh-navigation-tools 
 sudo 
 colored-man-pages
 docker
+kubectl
+wakatime
  )
 
 export ZSH="/Users/jubril/.oh-my-zsh"
@@ -109,14 +113,40 @@ zstyle ':completion:*' matcher-list 'l:|=* r:|=*'
 # Example aliases
 alias zshconfig="nano ~/.zshrc"
 alias ohmyzsh="micro ~/.oh-my-zsh"
-alias cat=bat
 #alias micro="~/./micro"
 alias srv="cd ~/Pictures/screenshots && python3 -m http.server --cgi"
-alias psd="http secure-woodland.herokuapp.com/generate/30 | grep -i password"
+alias psd="http secure-woodland.herokuapp.com/generate/30 | grep -i password | jq .password"
 alias xsstrike="python3 ~/sectools/XSStrike/xsstrike.py"  
 alias htmlstarter="touch index.html style.css script.js"
 alias pipf="pip freeze > requirements.txt"  
 alias nvconf="nvim ~/.config/nvim/init.vim"
-alias kubectl="minikube kubectl --"
+alias penv="python3 -m venv env"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export GOPATH=~/go
+export GOBIN=$GOPATH/bin
+
+# ALIASSESS #
+
+alias kind="$GOBIN/kind"
+alias zshrc="nvim ~/.zshrc"
+alias nvimrc="nvim ~/.config/nvim/init.vim"
+alias kittyconf="nvim ~/.config/kitty/kitty.conf"
+alias gobuster="$GOPATH/bin/gobuster"
+alias mk="minikube kubectl --"
+alias n="nvim"
+alias tmuxconf="n ~/.tmux.conf"
+autoload -Uz compinit
+compinit
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
+
+# use pure promptin
+autoload -U promptinit; promptinit
+prompt pure
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jubril/tmp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jubril/tmp/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jubril/tmp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jubril/tmp/google-cloud-sdk/completion.zsh.inc'; fi
