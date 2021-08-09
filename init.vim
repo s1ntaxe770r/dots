@@ -5,24 +5,16 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
-<<<<<<< HEAD
 "EXPERIMENTAL plugins
 "Plug 'codota/tabnine-vim'
 Plug 'wakatime/vim-wakatime'
-=======
-Plug 'preservim/nerdtree'
-
->>>>>>> 5970eb3c3da200e6f8bd97e04ec4d330207df99b
 "" colorschemes
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lifepillar/vim-solarized8'
-<<<<<<< HEAD
 
-=======
->>>>>>> 5970eb3c3da200e6f8bd97e04ec4d330207df99b
 
 "" STARTSCREEN
 Plug 'mhinz/vim-startify'
@@ -42,14 +34,8 @@ au filetype go inoremap <buffer> . .<C-x><C-o>
 set termguicolors
 filetype plugin indent on
 set background=dark
-<<<<<<< HEAD
 autocmd vimenter * colorscheme gruvbox 
 autocmd vimenter * AirlineTheme gruvbox-light
-=======
-autocmd vimenter * colorscheme palenight 
-autocmd vimenter * AirlineTheme palenight
-
->>>>>>> 5970eb3c3da200e6f8bd97e04ec4d330207df99b
 set encoding=UTF-8
 filetype plugin indent on
 set t_co=256
@@ -68,10 +54,6 @@ au BufNewFile,BufRead *.py
 
 
 " COC-stuf	
-<<<<<<< HEAD
-=======
-autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
->>>>>>> 5970eb3c3da200e6f8bd97e04ec4d330207df99b
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -91,7 +73,6 @@ else
 endif
 
 
-<<<<<<< HEAD
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
@@ -207,8 +188,6 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-=======
->>>>>>> 5970eb3c3da200e6f8bd97e04ec4d330207df99b
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -230,7 +209,6 @@ endfunction
 
 
 "Nerdtree
-<<<<<<< HEAD
 "nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
@@ -242,14 +220,5 @@ nnoremap <C-c> :tabnext<CR>
 let g:airline_powerline_fonts = 1
 "let g:airline_statusline_ontop=1
 let g:airline#extensions#tabline#enabled = 1
-=======
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-
-"Airline 
-let g:airline_powerline_fonts = 1
->>>>>>> 5970eb3c3da200e6f8bd97e04ec4d330207df99b
 
 call plug#end()
