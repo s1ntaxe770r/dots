@@ -135,6 +135,8 @@ alias gobuster="$GOPATH/bin/gobuster"
 alias mk="minikube kubectl --"
 alias n="nvim"
 alias tmuxconf="n ~/.tmux.conf"
+alias cr="cargo run"
+alias cb="cargo build"
 autoload -Uz compinit
 compinit
 # Completion for kitty
