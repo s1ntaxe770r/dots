@@ -137,6 +137,15 @@ alias n="nvim"
 alias tmuxconf="n ~/.tmux.conf"
 alias cr="cargo run"
 alias cb="cargo build"
+alias usage='du -h -d1'
+alias drives='df -h'
+alias c='clear'
+source <(kubectl completion zsh)
+source <(kubebuilder completion zsh)
+
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ "$TERM" == "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
+
 autoload -Uz compinit
 compinit
 # Completion for kitty
