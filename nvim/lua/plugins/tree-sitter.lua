@@ -1,0 +1,32 @@
+return {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "hcl",
+        "terraform",
+        "bash",
+        "dockerfile",
+        "javascript",
+        "typescript",
+        "go",
+        "gomod",
+        "gosum",
+        "gowork",
+        "hcl",
+        "json",
+        "lua",
+        "make",
+        "markdown",
+        "markdown_inline",
+        "python",
+        "regex",
+        "ruby",
+        "terraform",
+        "toml",
+        "vim",
+        "yaml",
+      },
+    },
+  },
+}
